@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WidgetsLab">
 
+        <!-- Pantalla principal -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,6 +26,12 @@
             </intent-filter>
 
         </activity>
+
+        <!-- Segunda pantalla: Recordatorios -->
+        <activity
+            android:name=".WorkActivity"
+            android:exported="false"
+            android:label="Recordatorios" />
 
         <!-- Receptor del widget -->
         <receiver
