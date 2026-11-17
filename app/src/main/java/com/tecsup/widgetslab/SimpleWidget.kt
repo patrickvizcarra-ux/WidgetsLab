@@ -12,7 +12,6 @@ import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.provideContent
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Column
-import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.text.Text
@@ -25,29 +24,26 @@ class SimpleWidgetContent : GlanceAppWidget() {
     ) {
         provideContent {
             GlanceTheme {
-                MyContent()
-            }
-        }
-    }
+                Column(
+                    modifier = GlanceModifier
+                        .fillMaxSize()
+                        .padding(12.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text("STUDY ASSISTANT")
+                    Text("Accesos rapidos a tus actividades")
 
-    @Composable
-    private fun MyContent() {
-        Column(
-            modifier = GlanceModifier
-                .fillMaxSize()
-                .padding(12.dp),
-            verticalAlignment = Alignment.Top,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = "¿A dónde quieres dirigirte?")
+                    Button(
+                        text = "Inicio",
+                        onClick = actionStartActivity<MainActivity>()
+                    )
 
-            Row(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Button(
-                    text = "Página Principal",
-                    onClick = actionStartActivity<MainActivity>()
-                )
+                    Button(
+                        text = "Recordatorios",
+                        onClick = actionStartActivity<WorkActivity>()
+                    )
+                }
             }
         }
     }
